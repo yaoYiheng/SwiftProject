@@ -20,6 +20,10 @@ import UIKit
 ///基类控制器
 class YYHBaseTableController: UIViewController {
 
+    //是否登录
+    var isLogon = false
+
+
     ///表格控件
     var tableView: UITableView?
 
@@ -54,11 +58,22 @@ extension YYHBaseTableController {
     view.backgroundColor = UIColor.cz_random()
 
 //    setNavigationBar()
-    setupTableView()
-    loadData()
+
+
+    isLogon ? setupTableView() : setupVisitorView()
+
+    }
+    ///加载访客视图
+    private func setupVisitorView() {
+        let visitorView = UIView.init(frame: view.bounds)
+        visitorView.backgroundColor = UIColor.cz_random()
+
+        view.addSubview(visitorView)
 
     }
 
+
+    ///加载表格视图
     private func setupTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
 
