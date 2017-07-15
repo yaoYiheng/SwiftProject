@@ -21,7 +21,7 @@ import UIKit
 class YYHBaseTableController: UIViewController {
 
     //是否登录
-    var isLogon = false
+    var isLogon = false 
 
 
     ///表格控件
