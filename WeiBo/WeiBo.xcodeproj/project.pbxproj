@@ -20,6 +20,7 @@
 		A525B9671F07B4BE00D04ACE /* YYHDemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525B9661F07B4BE00D04ACE /* YYHDemoTableViewController.swift */; };
 		A525B96D1F0A397500D04ACE /* UIBarButtonItem+YYHBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A525B96C1F0A397500D04ACE /* UIBarButtonItem+YYHBarButton.m */; };
 		A525B96F1F0A3FF100D04ACE /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525B96E1F0A3FF100D04ACE /* UIBarButtonItem+Extensions.swift */; };
+		A57787761F1B72A000989A5E /* YYHVistorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57787751F1B72A000989A5E /* YYHVistorView.swift */; };
 		A579E07E1F008690008BB1E1 /* UIColor+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = A579E0651F008690008BB1E1 /* UIColor+CZAddition.m */; };
 		A579E07F1F008690008BB1E1 /* UIView+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = A579E0661F008690008BB1E1 /* UIView+CZAddition.m */; };
 		A579E0801F008690008BB1E1 /* UIScreen+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = A579E0691F008690008BB1E1 /* UIScreen+CZAddition.m */; };
@@ -52,6 +53,7 @@
 		A525B96C1F0A397500D04ACE /* UIBarButtonItem+YYHBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+YYHBarButton.m"; path = "../../../../../../练习代码/17_03_16_Budejie/17_03_16_Budejie/Classes/Other-其他/Categories/UIBarButtonItem+YYHBarButton.m"; sourceTree = "<group>"; };
 		A525B96E1F0A3FF100D04ACE /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
 		A542477C1F0089010096DE46 /* WeiBo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeiBo-Bridge.h"; sourceTree = "<group>"; };
+		A57787751F1B72A000989A5E /* YYHVistorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YYHVistorView.swift; sourceTree = "<group>"; };
 		A579E0651F008690008BB1E1 /* UIColor+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CZAddition.m"; sourceTree = "<group>"; };
 		A579E0661F008690008BB1E1 /* UIView+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CZAddition.m"; sourceTree = "<group>"; };
 		A579E0671F008690008BB1E1 /* UIButton+CZAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CZAddition.h"; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				A525B9651F07B3CF00D04ACE /* 测试 */,
 				A52987461F139BEC00F154C6 /* 主控制器 */,
+				A57787741F1B727C00989A5E /* 访客视图 */,
 				A5173C961EFFC21F00DC6700 /* YYHBaseTableController.swift */,
 			);
 			path = Main;
@@ -230,6 +233,14 @@
 				A5173C941EFFC1D700DC6700 /* YYHNavigationController.swift */,
 			);
 			path = "主控制器";
+			sourceTree = "<group>";
+		};
+		A57787741F1B727C00989A5E /* 访客视图 */ = {
+			isa = PBXGroup;
+			children = (
+				A57787751F1B72A000989A5E /* YYHVistorView.swift */,
+			);
+			path = "访客视图";
 			sourceTree = "<group>";
 		};
 		A579E0641F008690008BB1E1 /* Additions */ = {
@@ -340,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A525B96F1F0A3FF100D04ACE /* UIBarButtonItem+Extensions.swift in Sources */,
+				A57787761F1B72A000989A5E /* YYHVistorView.swift in Sources */,
 				A5173C971EFFC21F00DC6700 /* YYHBaseTableController.swift in Sources */,
 				A579E0821F008690008BB1E1 /* NSString+CZBase64.m in Sources */,
 				A5173C951EFFC1D700DC6700 /* YYHNavigationController.swift in Sources */,

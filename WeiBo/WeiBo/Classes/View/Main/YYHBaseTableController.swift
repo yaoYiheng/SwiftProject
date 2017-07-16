@@ -21,7 +21,7 @@ import UIKit
 class YYHBaseTableController: UIViewController {
 
     //是否登录
-    var isLogon = false 
+    var isLogon = false
 
 
     ///表格控件
@@ -65,8 +65,8 @@ extension YYHBaseTableController {
     }
     ///加载访客视图
     private func setupVisitorView() {
-        let visitorView = UIView.init(frame: view.bounds)
-        visitorView.backgroundColor = UIColor.cz_random()
+        let visitorView = YYHVistorView.init(frame: view.bounds)
+//        visitorView.backgroundColor = UIColor.cz_random()
 
         view.addSubview(visitorView)
 
