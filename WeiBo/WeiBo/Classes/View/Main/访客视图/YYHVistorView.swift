@@ -50,5 +50,44 @@ extension YYHVistorView {
         addSubview(registerButton)
         addSubview(logInButton)
 
+        //取消 autoresizing 与autolayout不能共存
+        //自动布局子控件
+        for view in subviews {
+            view.translatesAutoresizingMaskIntoConstraints = false
+        }
+
+        //添加约束
+        //给圆圈添加
+        addConstraint(NSLayoutConstraint.init(item: circleView,
+                                              attribute: .centerX,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .centerX,
+                                              multiplier: 1.0,
+                                              constant: 0))
+        addConstraint(NSLayoutConstraint.init(item: circleView,
+                                              attribute: .centerY,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .centerY,
+                                              multiplier: 1.0,
+                                              constant: -50))
+
+        //添加小房子
+        addConstraint(NSLayoutConstraint.init(item: houseView,
+                                              attribute: .centerX,
+                                              relatedBy: .equal,
+                                              toItem: circleView,
+                                              attribute: .centerX,
+                                              multiplier: 1.0,
+                                              constant: 0))
+        addConstraint(NSLayoutConstraint.init(item: houseView,
+                                              attribute: .centerY,
+                                              relatedBy: .equal,
+                                              toItem: circleView,
+                                              attribute: .centerY,
+                                              multiplier: 1.0,
+                                              constant: 0))
+
     }
 }
