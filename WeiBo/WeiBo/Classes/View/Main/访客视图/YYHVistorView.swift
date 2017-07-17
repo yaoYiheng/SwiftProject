@@ -214,6 +214,12 @@ extension YYHVistorView {
         /*
          views: 定义 VFL 的控件名称与实际名称的映射关系
          metrics: 定义 VFL 中()中指定的常数映射关系
+         VFL 可视化语言格式
+         H: 水平方向
+         V: 垂直方向
+         |: 边界
+         []: 待设置的控件的名称的字符串, 对应关系在 views 字典中设置
+         (): 设置宽高常数, 可以在metrics中指定
          */
         let viewDict:[String: Any] = ["coverView": coverView,
                         "registerButton": registerButton]
