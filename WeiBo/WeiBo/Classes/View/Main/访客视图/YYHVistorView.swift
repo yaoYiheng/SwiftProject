@@ -43,7 +43,8 @@ class YYHVistorView: UIView {
 
 extension YYHVistorView {
     func setupUI() {
-        backgroundColor = UIColor.white
+        //使用背景颜色, 来处理剩下的未被遮盖的部分, 在开发中, 能使用颜色尽量使用颜色, 效率更高
+        backgroundColor = UIColor.cz_color(withHex: 0xEDEDED)
 
         //添加子控件到视图
         addSubview(circleView)
