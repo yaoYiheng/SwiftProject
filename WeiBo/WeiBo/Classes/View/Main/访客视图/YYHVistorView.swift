@@ -58,6 +58,22 @@ extension YYHVistorView {
 
         //添加约束
         //给圆圈添加
+        /*
+         自动布局构造函数公式:
+         item1.attribute1 = multiplier × item2.attribute2 + constant
+         
+         item: 待添加约束的视图,
+         attribute: 约束的属性,
+         relatedBy: 约束关系, == >= <=,
+         toItem: 参照视图,
+         attribute: 参照属性,
+         multiplier: 乘积,
+         constant: 约束数值
+
+         如果指定 宽 高:
+         参照视图设为: nil
+         参照属性设置为: .nonattribute
+         */
         addConstraint(NSLayoutConstraint.init(item: circleView,
                                               attribute: .centerX,
                                               relatedBy: .equal,
