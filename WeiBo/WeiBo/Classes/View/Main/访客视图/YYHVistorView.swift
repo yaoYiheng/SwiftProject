@@ -25,6 +25,8 @@ class YYHVistorView: UIView {
     //圆圈
     private lazy var circleView: UIImageView = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_image_smallicon"))
 
+    //蒙板
+    private lazy var coverView: UIImageView = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_mask_smallicon"))
     //小房子
     private lazy var houseView: UIImageView = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_image_house"))
 
@@ -45,6 +47,7 @@ extension YYHVistorView {
 
         //添加子控件到视图
         addSubview(circleView)
+        addSubview(coverView)
         addSubview(houseView)
         addSubview(tipLabel)
         addSubview(registerButton)
@@ -190,6 +193,45 @@ extension YYHVistorView {
                                               attribute: .notAnAttribute,
                                               multiplier: 1.0,
                                               constant: 50))
+        /*
+        addConstraint(NSLayoutConstraint.init(item: coverView,
+                                              attribute: .width,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .width,
+                                              multiplier: 1.0,
+                                              constant: 0))
+        addConstraint(NSLayoutConstraint.init(item: coverView,
+                                              attribute: .bottom,
+                                              relatedBy: .equal,
+                                              toItem: registerButton,
+                                              attribute: .bottom,
+                                              multiplier: 1.0,
+                                              constant: 0))
+         */
+
+        //添加遮盖
+        /*
+         views: 定义 VFL 的控件名称与实际名称的映射关系
+         metrics: 定义 VFL 中()中指定的常数映射关系
+         */
+        let viewDict:[String: Any] = ["coverView": coverView,
+                        "registerButton": registerButton]
+        let metrics = ["spacing": -50]
+
+
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[coverView]-0-|",
+                                                      options: [],
+                                                      metrics: nil,
+                                                      views: viewDict))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[coverView]-(spacing)-[registerButton]",
+                                                      options: [],
+                                                      metrics: metrics,
+                                                      views: viewDict))
     }
+
+
 
 }
