@@ -23,6 +23,9 @@ class YYHBaseTableController: UIViewController {
     //是否登录
     var isLogon = false
 
+    //访客视图信息字典
+    var visitorInfoDict: [String: String]?
+
 
     ///表格控件
     var tableView: UITableView?
@@ -68,6 +71,8 @@ extension YYHBaseTableController {
         let visitorView = YYHVistorView.init(frame: view.bounds)
 //        visitorView.backgroundColor = UIColor.cz_random()
 
+        //通过外界赋值给visitorView的字典属性
+        visitorView.visitorInfo = visitorInfoDict
         view.addSubview(visitorView)
 
     }

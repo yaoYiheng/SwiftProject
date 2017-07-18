@@ -83,21 +83,25 @@ extension YYHTabBarViewController{
         //控制器字典数组
     let controllerDictInArray: [[String: Any]] = [
             ["className": "YYHViewController", "title": "首页", "imageName": "home",
-             "visitorInfo":["imageName": "", "message": ""]
+             "visitorInfo": ["imageName": "", "message": "关注一些人，回这里看看有什么惊喜"]
             ],
             ["className": "YYHMessageViewController", "title": "消息", "imageName": "message_center",
-             "visitorInfo":["imageName": "", "message": ""]
+             "visitorInfo": ["imageName": "visitordiscover_image_message", "message": "登录后，别人评论你的微博，发给你的消息，都会在这里收到通知"]
             ],
             //添加中间的撰写按钮,由于其他值都是无效的, 调用controller方法时会返回一个UIViewController
             ["className": "UIViewController"],
             ["className": "YYHDiscoverViewController", "title": "发现", "imageName": "discover",
-             "visitorInfo":["imageName": "", "message": ""]
+             "visitorInfo": ["imageName": "visitordiscover_image_message", "message": "登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"]
             ],
             ["className": "YYHProfileViewController", "title": "我", "imageName": "profile",
-             "visitorInfo":["imageName": "", "message": ""]
+             "visitorInfo": ["imageName": "visitordiscover_image_profile", "message": "登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]
             ]
 
         ]
+
+
+//        (controllerDictInArray as NSArray).write(toFile: "/Users/Morris/Desktop/中文版问题.plist", atomically: true)
+        print(controllerDictInArray)
 
         //控制器数组
         var controllerArray = [UIViewController]()
@@ -122,8 +126,8 @@ extension YYHTabBarViewController{
         guard let className = dictionary["className"] as? String,
             let title = dictionary["title"] as? String,
             let imageName = dictionary["imageName"] as? String,
-            let viewController = NSClassFromString(Bundle.main.namespace + "." + className) as? UIViewController.Type
-
+            let viewController = NSClassFromString(Bundle.main.namespace + "." + className) as? YYHBaseTableController.Type,
+        let visitorInfo = dictionary["visitorInfo"] as? [String: String]
             else{
 
             return UIViewController()
@@ -133,6 +137,10 @@ extension YYHTabBarViewController{
         //2. 创建视图控制器
         //使用之前获取到的类, 实例化
         let realVC = viewController.init()
+
+        //设置字典信息
+        realVC.visitorInfoDict = visitorInfo
+
 
         realVC.title = title
 

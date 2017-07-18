@@ -32,6 +32,9 @@ class YYHVistorView: UIView {
             }
         
             circleView.image = UIImage.init(named: imageName)
+            //不是首页的话小房子遮罩无需显示
+            houseView.isHidden = true
+            coverView.isHidden = true
 
         }
 
@@ -82,6 +85,9 @@ extension YYHVistorView {
         addSubview(tipLabel)
         addSubview(registerButton)
         addSubview(logInButton)
+
+        //设置字体居中
+        tipLabel.textAlignment = .center
 
         //取消 autoresizing 与autolayout不能共存
         //自动布局子控件
