@@ -10,8 +10,37 @@ import UIKit
 
 class YYHVistorView: UIView {
 
+    ///Type '[String : String]?' has no subscript members
+    ///访客视图的信息字典[imageName/message]
+    var visitorInfo: [String: String]? {
+        didSet{
+            //守护, 获取字典信息
+            guard let imageName = visitorInfo?["imageName"],
+                let message = visitorInfo?["message"]
+
+            else {
+                return
+
+            }
+
+            //修改文字
+            tipLabel.text = message
+
+            //修改图像如果是首页就不修改
+            if imageName == ""{
+                return
+            }
+        
+            circleView.image = UIImage.init(named: imageName)
+
+        }
+
+    }
 
 
+
+
+    //MARK: -构造函数
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
