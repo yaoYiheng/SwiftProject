@@ -81,13 +81,21 @@ extension YYHTabBarViewController{
    private func configureChildrenControllers() {
 
         //控制器字典数组
-        let controllerDictInArray = [
-            ["className": "YYHViewController", "title": "首页", "imageName": "home"],
-            ["className": "YYHMessageViewController", "title": "消息", "imageName": "message_center"],
+    let controllerDictInArray: [[String: Any]] = [
+            ["className": "YYHViewController", "title": "首页", "imageName": "home",
+             "visitorInfo":["imageName": "", "message": ""]
+            ],
+            ["className": "YYHMessageViewController", "title": "消息", "imageName": "message_center",
+             "visitorInfo":["imageName": "", "message": ""]
+            ],
             //添加中间的撰写按钮,由于其他值都是无效的, 调用controller方法时会返回一个UIViewController
             ["className": "UIViewController"],
-            ["className": "YYHDiscoverViewController", "title": "发现", "imageName": "discover"],
-            ["className": "YYHProfileViewController", "title": "我", "imageName": "profile"]
+            ["className": "YYHDiscoverViewController", "title": "发现", "imageName": "discover",
+             "visitorInfo":["imageName": "", "message": ""]
+            ],
+            ["className": "YYHProfileViewController", "title": "我", "imageName": "profile",
+             "visitorInfo":["imageName": "", "message": ""]
+            ]
 
         ]
 
@@ -96,7 +104,7 @@ extension YYHTabBarViewController{
 
         for dict in controllerDictInArray {
 
-            controllerArray.append(controller(dictionary: dict))
+            controllerArray.append(controller(dictionary: dict as [String : AnyObject]))
         }
         viewControllers = controllerArray
 
@@ -108,12 +116,12 @@ extension YYHTabBarViewController{
     ///
     /// - Parameter dictionary: 信息字典[className, title, imageName]
     /// - Returns: 子控制器
-    private func controller(dictionary: [String: String]) -> UIViewController{
+    private func controller(dictionary: [String: AnyObject]) -> UIViewController{
 
         //1. 获取字典内容
-        guard let className = dictionary["className"],
-            let title = dictionary["title"],
-            let imageName = dictionary["imageName"],
+        guard let className = dictionary["className"] as? String,
+            let title = dictionary["title"] as? String,
+            let imageName = dictionary["imageName"] as? String,
             let viewController = NSClassFromString(Bundle.main.namespace + "." + className) as? UIViewController.Type
 
             else{
