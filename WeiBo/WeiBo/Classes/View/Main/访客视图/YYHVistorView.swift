@@ -27,7 +27,9 @@ class YYHVistorView: UIView {
             tipLabel.text = message
 
             //修改图像如果是首页就不修改
+            //首页, 执行旋转动画
             if imageName == ""{
+                startAnimation()
                 return
             }
         
@@ -40,9 +42,6 @@ class YYHVistorView: UIView {
 
     }
 
-
-
-
     //MARK: -构造函数
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,6 +50,24 @@ class YYHVistorView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    //MARK: -旋转动画
+    private func startAnimation() {
+        //实例化动画
+        let animation = CABasicAnimation.init(keyPath: "transform.rotation")
+
+        //设置动画相关属性
+        animation.duration = 20
+        animation.repeatCount = MAXFLOAT
+        //M_PI已被移除, 使用Double.pi替代
+        animation.toValue = 2 * Double.pi
+
+        //当动画完成后是否从目标图层中移除, 在设置需要连续播放的动画时, 设置为false
+        animation.isRemovedOnCompletion = false
+
+        //添加动画到图层
+        circleView.layer.add(animation, forKey: nil)
+
     }
 
     //MARK: -懒加载私有控件

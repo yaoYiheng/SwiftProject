@@ -101,7 +101,7 @@ extension YYHTabBarViewController{
 
 
 //        (controllerDictInArray as NSArray).write(toFile: "/Users/Morris/Desktop/中文版问题.plist", atomically: true)
-        print(controllerDictInArray)
+
 
         //控制器数组
         var controllerArray = [UIViewController]()
