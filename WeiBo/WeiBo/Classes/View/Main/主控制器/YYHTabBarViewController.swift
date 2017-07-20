@@ -80,24 +80,36 @@ extension YYHTabBarViewController{
     /// 设置所有子控制器
    private func configureChildrenControllers() {
 
-        //控制器字典数组
-    let controllerDictInArray: [[String: Any]] = [
-            ["className": "YYHViewController", "title": "首页", "imageName": "home",
-             "visitorInfo": ["imageName": "", "message": "关注一些人，回这里看看有什么惊喜"]
-            ],
-            ["className": "YYHMessageViewController", "title": "消息", "imageName": "message_center",
-             "visitorInfo": ["imageName": "visitordiscover_image_message", "message": "登录后，别人评论你的微博，发给你的消息，都会在这里收到通知"]
-            ],
-            //添加中间的撰写按钮,由于其他值都是无效的, 调用controller方法时会返回一个UIViewController
-            ["className": "UIViewController"],
-            ["className": "YYHDiscoverViewController", "title": "发现", "imageName": "discover",
-             "visitorInfo": ["imageName": "visitordiscover_image_message", "message": "登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"]
-            ],
-            ["className": "YYHProfileViewController", "title": "我", "imageName": "profile",
-             "visitorInfo": ["imageName": "visitordiscover_image_profile", "message": "登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]
-            ]
+    //从Bundle中加载Json文件
+    guard let path = Bundle.main.path(forResource: "Main.json", ofType: nil),
+        //将main.json文件转换成二进制数据
+        let data = NSData.init(contentsOfFile: path),
+        //反序列化, 将二进制文件转换成类型为[[String: Any]]的数组
+    let controllerDictInArray = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: Any]]
+    else
+    {
+            return
+    }
 
-        ]
+
+        //控制器字典数组
+//    let controllerDictInArray: [[String: Any]] = [
+//            ["className": "YYHViewController", "title": "首页", "imageName": "home",
+//             "visitorInfo": ["imageName": "", "message": "关注一些人，回这里看看有什么惊喜"]
+//            ],
+//            ["className": "YYHMessageViewController", "title": "消息", "imageName": "message_center",
+//             "visitorInfo": ["imageName": "visitordiscover_image_message", "message": "登录后，别人评论你的微博，发给你的消息，都会在这里收到通知"]
+//            ],
+//            //添加中间的撰写按钮,由于其他值都是无效的, 调用controller方法时会返回一个UIViewController
+//            ["className": "UIViewController"],
+//            ["className": "YYHDiscoverViewController", "title": "发现", "imageName": "discover",
+//             "visitorInfo": ["imageName": "visitordiscover_image_message", "message": "登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"]
+//            ],
+//            ["className": "YYHProfileViewController", "title": "我", "imageName": "profile",
+//             "visitorInfo": ["imageName": "visitordiscover_image_profile", "message": "登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]
+//            ]
+//
+//        ]
 
 
 //        (controllerDictInArray as NSArray).write(toFile: "/Users/Morris/Desktop/中文版问题.plist", atomically: true)
@@ -108,11 +120,12 @@ extension YYHTabBarViewController{
 
         //控制器数组
         var controllerArray = [UIViewController]()
-
-        for dict in controllerDictInArray {
+        //遍历循环创建控制器数组
+        for dict in controllerDictInArray! {
 
             controllerArray.append(controller(dictionary: dict as [String : AnyObject]))
         }
+        //设置tabBar的子控制器
         viewControllers = controllerArray
 
 
