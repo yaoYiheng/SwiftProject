@@ -102,6 +102,9 @@ extension YYHTabBarViewController{
 
 //        (controllerDictInArray as NSArray).write(toFile: "/Users/Morris/Desktop/中文版问题.plist", atomically: true)
 
+        //将对象转换成Json文件
+//        let data = try! JSONSerialization.data(withJSONObject: controllerDictInArray, options: .prettyPrinted)
+//        (data as NSData).write(toFile: "/Users/Morris/Desktop/Main.json", atomically: true)
 
         //控制器数组
         var controllerArray = [UIViewController]()

@@ -33,6 +33,7 @@
 		A579E0871F008690008BB1E1 /* NSString+CZHash.m in Sources */ = {isa = PBXBuildFile; fileRef = A579E0781F008690008BB1E1 /* NSString+CZHash.m */; };
 		A579E0881F008690008BB1E1 /* NSAttributedString+CZAdditon.m in Sources */ = {isa = PBXBuildFile; fileRef = A579E07B1F008690008BB1E1 /* NSAttributedString+CZAdditon.m */; };
 		A579E0891F008690008BB1E1 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = A579E07C1F008690008BB1E1 /* NSArray+Log.m */; };
+		A5F3EA891F20CBDF00AFCF01 /* Main.json in Resources */ = {isa = PBXBuildFile; fileRef = A5F3EA881F20CBDF00AFCF01 /* Main.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		A579E07B1F008690008BB1E1 /* NSAttributedString+CZAdditon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+CZAdditon.m"; sourceTree = "<group>"; };
 		A579E07C1F008690008BB1E1 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		A579E07D1F008690008BB1E1 /* NSString+CZPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CZPath.h"; sourceTree = "<group>"; };
+		A5F3EA881F20CBDF00AFCF01 /* Main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Main.json; path = ../../../../../../../../../Desktop/Main.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 		A52987461F139BEC00F154C6 /* 主控制器 */ = {
 			isa = PBXGroup;
 			children = (
+				A5F3EA881F20CBDF00AFCF01 /* Main.json */,
 				A5173C921EFFC1BD00DC6700 /* YYHTabBarViewController.swift */,
 				A5173C941EFFC1D700DC6700 /* YYHNavigationController.swift */,
 			);
@@ -339,6 +342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F3EA891F20CBDF00AFCF01 /* Main.json in Resources */,
 				A5173C7E1EFD3C1F00DC6700 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
