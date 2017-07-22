@@ -54,7 +54,16 @@ class YYHBaseTableController: UIViewController {
     }
 
 }
+///添加监听方法
+extension YYHBaseTableController{
 
+    @objc private func register() {
+        print("注册")
+    }
+    @objc private func login() {
+        print("登录")
+    }
+}
 ///设置UI
 extension YYHBaseTableController {
   @objc func setupUI() {
@@ -73,6 +82,10 @@ extension YYHBaseTableController {
 
         //通过外界赋值给visitorView的字典属性
         visitorView.visitorInfo = visitorInfoDict
+
+        //监听方法
+        visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
+        visitorView.registerButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         view.addSubview(visitorView)
 
     }
