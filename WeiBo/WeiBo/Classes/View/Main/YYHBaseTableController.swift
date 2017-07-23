@@ -66,7 +66,7 @@ extension YYHBaseTableController{
 }
 ///设置UI
 extension YYHBaseTableController {
-  @objc func setupUI() {
+  @objc private func setupUI() {
     view.backgroundColor = UIColor.cz_random()
 
 //    setNavigationBar()
@@ -88,11 +88,16 @@ extension YYHBaseTableController {
         visitorView.registerButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         view.addSubview(visitorView)
 
+        //添加导航栏按钮
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "注册", style: .plain, target: self, action: #selector(register))
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "登录", style: .plain, target: self, action: #selector(login))
+
     }
 
 
     ///加载表格视图
-    private func setupTableView() {
+    @objc func setupTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
 
         //设置代理以及数据源

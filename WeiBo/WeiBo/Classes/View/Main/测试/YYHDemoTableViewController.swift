@@ -25,13 +25,20 @@ class YYHDemoTableViewController: YYHBaseTableController {
 
 }
 extension YYHDemoTableViewController {
+
+    override func setupTableView() {
+        super.setupTableView()
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "下一个", fontSize: 19, target: self, action: #selector(showNext), isBack: false)
+    }
+
+
     ///重写父类的方法, 但是不要忘记调用super
-    override func setupUI() {
-        super.setupUI()
+//    override func setupUI() {
+//        super.setupUI()
 
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", target: self, action: #selector(showNext))
-        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "下一个", fontSize: 19, target: self, action: #selector(showNext), isBack: false)
-
-
-    }
+//        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "下一个", fontSize: 19, target: self, action: #selector(showNext), isBack: false)
+//
+//
+//    }
 }

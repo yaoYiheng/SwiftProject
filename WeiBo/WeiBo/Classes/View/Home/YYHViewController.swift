@@ -73,10 +73,19 @@ extension YYHViewController{
 }
 
 extension YYHViewController {
+
+    override func setupTableView() {
+        super.setupTableView()
+        //通过为BarButtonItem抽取 便利构造函数, 快速创建button
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", fontSize: 18, target: self, action: #selector(showFriends), isBack: false)
+
+        //注册cell, 在OC中写的是UITableViewCell.class, 这里是UITableViewCell.self
+        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+    }
      ///错误: Declarations in extensions cannot override yet
     /// Override of instance method 'setupUI()' from extension of 'YYHBaseTableController' depends on deprecated inference of '@objc'
-    override func setupUI() {
-        super.setupUI()
+//    override func setupUI() {
+//        super.setupUI()
 
         
         //设置导航条左边的按钮, 系统自带的无法满足需要
@@ -89,10 +98,10 @@ extension YYHViewController {
 //        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: button)
 
         //通过为BarButtonItem抽取 便利构造函数, 快速创建button
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", fontSize: 18, target: self, action: #selector(showFriends), isBack: false)
-
-        //注册cell, 在OC中写的是UITableViewCell.class, 这里是UITableViewCell.self
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
-    }
+//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", fontSize: 18, target: self, action: #selector(showFriends), isBack: false)
+//
+//        //注册cell, 在OC中写的是UITableViewCell.class, 这里是UITableViewCell.self
+//        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+//    }
 
 }
