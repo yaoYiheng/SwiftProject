@@ -69,7 +69,7 @@ extension YYHBaseTableController {
   @objc private func setupUI() {
     view.backgroundColor = UIColor.cz_random()
 
-//    setNavigationBar()
+    setNavigationBar()
 
 
     isLogon ? setupTableView() : setupVisitorView()
@@ -89,10 +89,17 @@ extension YYHBaseTableController {
         view.addSubview(visitorView)
 
         //添加导航栏按钮
-        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "注册", style: .plain, target: self, action: #selector(register))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "注册", style: .plain, target: self, action: #selector(register))
 
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "登录", style: .plain, target: self, action: #selector(login))
 
+//        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "注册", target: self, action: #selector(register), isBack: false)
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "注册", style: .plain, target: self, action: #selector(register))
+
+        //
+//        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "注册", fontSize: 16, target: self, action: #selector(register), normal: UIColor.orange, highlighted: UIColor.darkGray, isBack: false)
+//
+//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "登录", fontSize: 16, target: self, action: #selector(login), normal: UIColor.orange, highlighted: UIColor.darkGray, isBack: false)
     }
 
 
@@ -136,19 +143,30 @@ extension YYHBaseTableController {
 
     }
     ///设置导航条
-//    private func setNavigationBar() {
+    private func setNavigationBar() {
+
+
+//        //设置tintColor UIBarButtonItem, 具体的按钮的颜色
+        self.navigationController?.navigationBar.tintColor = UIColor.orange
+//
+//        //titleTextAttributes 设置中间标题的属性
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.red]
+//
+//        //设置整个导航条的颜色
+//        self.navigationController?.navigationBar.barTintColor = UIColor.blue
+
 //        view.addSubview(navigationBar)
 //
 //        // 将 item 设置给 bar
 //        navigationBar.items = [navItem]
-//
+
 //        // 1> 设置 navBar 整个背景的渲染颜色
-//        navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
+//        NavigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
 //        // 2> 设置 navBar 的字体颜色
-//        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.red]
+//        NavigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.red]
 //        // 3> 设置系统按钮的文字渲染颜色
-//        navigationBar.tintColor = UIColor.orange
-//    }
+//        NavigationBar.tintColor = UIColor.orange
+    }
 }
 //MARK: -tableView代理数据源方法
 extension YYHBaseTableController: UITableViewDelegate, UITableViewDataSource{
