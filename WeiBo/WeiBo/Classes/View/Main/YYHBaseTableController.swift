@@ -85,7 +85,7 @@ extension YYHBaseTableController {
 
         //监听方法
         visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
-        visitorView.registerButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        visitorView.logInButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         view.addSubview(visitorView)
 
         //添加导航栏按钮
