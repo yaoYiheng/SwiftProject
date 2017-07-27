@@ -24,6 +24,18 @@ class YYHViewController: YYHBaseTableController {
         ///模拟延迟加载数据
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
 
+            //使用封装的网络工具 发送网络请求
+            let urlSring = "https://api.weibo.com/2/statuses/home_timeline.json"
+            //请求参数字典
+            let parameter = ["access_token": "2.00ALgzxBT1mqVE91080efb59FfSqJC"]
+            YYHWeiBoNetWorking.shared.get(urlSring, parameters: parameter, progress: nil, success: { (_, json) in
+                print(json ?? "")
+            }, failure: { (_, error) in
+                print("网络请求失败\(error)")
+            })
+
+
+            
             //加载假数据
             for item in 0..<20 {
                 //如果是上拉刷新, 就追加到数组尾部

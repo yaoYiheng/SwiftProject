@@ -21,7 +21,7 @@ import UIKit
 class YYHBaseTableController: UIViewController {
 
     //是否登录
-    var isLogon = false
+    var isLogon = true
 
     //访客视图信息字典
     var visitorInfoDict: [String: String]?

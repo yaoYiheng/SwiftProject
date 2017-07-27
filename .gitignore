@@ -12,3 +12,7 @@
 *.xcuserstate
 
 WeiBo/WeiBo.xcodeproj/project.xcworkspace/xcuserdata/Morris.xcuserdatad/UserInterfaceState.xcuserstate
+
+*.xcbkptlist
+
+WeiBo/WeiBo.xcodeproj/project.pbxproj
