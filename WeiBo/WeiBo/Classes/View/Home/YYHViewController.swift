@@ -27,13 +27,19 @@ class YYHViewController: YYHBaseTableController {
             //使用封装的网络工具 发送网络请求
             let urlSring = "https://api.weibo.com/2/statuses/home_timeline.json"
             //请求参数字典
-            let parameter = ["access_token": "2.00ALgzxBT1mqVE91080efb59FfSqJC"]
-            YYHWeiBoNetWorking.shared.get(urlSring, parameters: parameter, progress: nil, success: { (_, json) in
-                print(json ?? "")
-            }, failure: { (_, error) in
-                print("网络请求失败\(error)")
-            })
+            let parameter:[String: AnyObject] = ["access_token": "2.00ALgzxBT1mqVE91080efb59FfSqJC" as AnyObject]
+//            YYHWeiBoNetWorking.shared.get(urlSring, parameters: parameter, progress: nil, success: { (_, json) in
+//                print(json ?? "")
+//            }, failure: { (_, error) in
+//                print("网络请求失败\(error)")
+//            })
 
+
+
+            //使用已封装的函数
+            YYHWeiBoNetWorking.shared.request(URLString: urlSring, parameters: parameter, completion: { (json, isSuccess) in
+                print(isSuccess, json as Any)
+            })
 
             
             //加载假数据
