@@ -20,6 +20,14 @@ class YYHWeiBoNetWorking: AFHTTPSessionManager {
     static let shared = YYHWeiBoNetWorking()
 
     //使用一个函数封装GET/POST请求
+
+    /// 使用一个函数封装AFN GET/POST请求
+    ///
+    /// - Parameters:
+    ///   - method: GET/POST
+    ///   - URLString: URLString
+    ///   - parameters: 参数字典
+    ///   - completion: 完成回调[json(字典/数组), 是否成功]
     func request(method: WBHTTPMethod = .GET, URLString: String, parameters: [String: AnyObject], completion: @escaping (_ json: AnyObject?, _ isSuccess: Bool )->()) {
 
         //请求成功的闭包
