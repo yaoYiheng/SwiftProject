@@ -43,6 +43,7 @@ class YYHViewController: YYHBaseTableController {
 
             //使用封装好的微博网络方法
             YYHWeiBoNetWorking.shared.statusList(completion: { (list, isSuccess) in
+                print(isSuccess)
                 print(list)
             })
 
