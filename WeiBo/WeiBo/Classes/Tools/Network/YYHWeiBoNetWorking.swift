@@ -13,6 +13,7 @@ enum WBHTTPMethod {
     case POST
 }
 
+/// 对AFN的方法进行封装
 class YYHWeiBoNetWorking: AFHTTPSessionManager {
 
     ///是一个保存在静态区的常量, 执行闭包

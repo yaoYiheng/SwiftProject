@@ -116,6 +116,7 @@ extension YYHBaseTableController {
         //设置UIRefreshControl
         setupUIRefresh()
 
+        loadData()
 
     }
 
