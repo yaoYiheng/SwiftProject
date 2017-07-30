@@ -32,6 +32,7 @@ class YYHWeiBoNetWorking: AFHTTPSessionManager {
         guard let token = accessToke else {
             //如果token为nil
             print("先获取token")
+            //FIXME: 发送通知, 提示用户登录
             //执行回调
             completion(nil, false)
             return
@@ -66,7 +67,16 @@ class YYHWeiBoNetWorking: AFHTTPSessionManager {
         }
         //请求失败的闭包
         let failure = { (task: URLSessionDataTask?, error: Error) -> () in
+            print("网络请求错误\(error)")
             completion(nil, false)
+            //如果token过期, 发送消息提示用户登录
+            //为了模仿token过期, 将token进行了修改, 打印错误信息status code: 403response=<NSHTTPURLResponse: 0x600000235720>
+            //response 是URLResponse?类型, 是NSHTTPURLResponse的父类, 将URLResponse转换成子类的HTTPURLResponse
+            //需要使用 as 进行类型强转,
+            if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
+                //FIXME: 发送通知, 提醒用户重新登录
+            }
+
         }
 
         if method == .GET {
