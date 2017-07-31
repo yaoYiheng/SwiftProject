@@ -13,7 +13,7 @@ extension YYHWeiBoNetWorking{
 
 
     /// 加载微博数据字典完成回调
-    ///
+    /// 注意力在回调的类型上, 不关心网络实现细节
     /// - Parameter completion: 完成回调[list字典数组]
     func statusList(completion: @escaping (_ list: [[String: AnyObject]]?, _ isSuccess: Bool)->()) {
         //使用封装的网络工具 发送网络请求
