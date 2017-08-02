@@ -22,25 +22,35 @@ class WBStatusListViewModel {
     lazy var statusList = [YYHStatusItem]()
 
     func loadStatus(completion:@escaping (_ isSuccess: Bool)->()) {
-        ///使用封装好的网络请求工具加载微博数据
-        YYHWeiBoNetWorking.shared.statusList { (list, isSuccess) in
 
-            //1. 使用YYModel字典转模型
-            //list是[[String : AnyObject]]?键为String, 值为任意对象的可选类型的字典数组, 如果list为nil, 则使用空数组代替,
-            //如果有值, 则将其转成类型为 微博模型的数组[YYHStatusItem]
-            //array 为[YYHStatusItem]?可选类型的微博模型数组
-            //使用guard守护
-            guard let array = NSArray.yy_modelArray(with: YYHStatusItem.self, json: list ?? []) as? [YYHStatusItem] else{
-                completion(isSuccess)
-                return
-            }
-            //2. 完成数据的拼接
-            self.statusList += array
-
-            //3. 完成回调
-            completion(isSuccess)
-
-
+        YYHWeiBoNetWorking.shared.statusList { (json, isSuccess) in
+            let array = NSArray.yy_modelArray(with: YYHStatusItem.self, json: json ?? []) as? [YYHStatusItem]
+            print(json)
+            print(array)
         }
+
+        ///使用封装好的网络请求工具加载微博数据
+//        YYHWeiBoNetWorking.shared.statusList { (list, isSuccess) in
+//
+//
+//            //1. 使用YYModel字典转模型
+//            //list是[[String : AnyObject]]?键为String, 值为任意对象的可选类型的字典数组, 如果list为nil, 则使用空数组代替,
+//            //如果有值, 则将其转成类型为 微博模型的数组[YYHStatusItem]
+//            //array 为[YYHStatusItem]?可选类型的微博模型数组
+//            //使用guard守护
+//
+//            guard let array = NSArray.yy_modelArray(with: YYHStatusItem.self, json: list ?? []) as? [YYHStatusItem] else{
+//                completion(isSuccess)
+//                return
+//            }
+//            print(array)
+//            //2. 完成数据的拼接
+//            self.statusList += array
+//
+//            //3. 完成回调
+//            completion(isSuccess)
+//
+//
+//        }
     }
 }
